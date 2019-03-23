@@ -3,19 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 const favicon = require('serve-favicon');
 const mongoose = require('mongoose');
 
-var app = express();
+const app = express();
 
 // connect to DB
 mongoose.connect('mongodb+srv://admin:123456v@profilepid-oznsg.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
  
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs', require('ejs-locals'));
+app.set('views', path.join(__dirname, 'template'));
 app.set('view engine', 'ejs');
 
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
@@ -25,9 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());  
 app.use(express.static(path.join(__dirname, 'public')));
  
-app.use('/', indexRouter);  
-app.use('/users', usersRouter);  
-       
+const routes = require('./routes/index');
+app.use('/', routes);  
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
