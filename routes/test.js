@@ -20,7 +20,7 @@ exports.post = function (req, res) {
                 console.log('Error in Saving coach: ' + err);
                 throw err;
             }
-            res.send('dada');
+            res.status(200).send('dada');
         });
   
     });
