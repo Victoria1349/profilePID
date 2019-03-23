@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connect to DB
-mongoose.connect('mongodb+srv://admin:123456v@profilepid-oznsg.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://admin:123456v@profilepid-oznsg.mongodb.net/profile-pid?retryWrites=true', {useNewUrlParser: true});
  
 
 // view engine setup
