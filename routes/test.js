@@ -12,12 +12,12 @@ exports.post = function (req, res) {
 
     newCaregiver.save(function (err) {
         if (err) {
-            console.log('Error in Saving coach: ' + err);
+            res.status(403).send(err);
             throw err;
         }
         newPid.save(function (err) {
             if (err) {
-                console.log('Error in Saving coach: ' + err);
+                res.status(403).send(err);
                 throw err;
             }
             res.status(200).send('dada');
