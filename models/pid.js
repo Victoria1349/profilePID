@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
 
 const pidSchema = mongoose.Schema({
-    email: {
+    login: {
         type: String,
         required: true
     },
     password: {
+        type: String,
+        required: true
+    },
+    id_caregiver: {
+        type: String,
+        required: true
+    },
+    id_employer: {
         type: String,
         required: true
     }

@@ -1,3 +1,47 @@
 <% layout ('layout/pattern') -%>
 
-fafaaf
+
+<body>
+
+
+<%for (var i=0; i<fsfaf.length; i++) { %>
+        <p><%=fsfaf[i].text%></p>
+    <% } %>
+
+    <form method="POST" action="/main" > <!-- -->
+        
+        <p>Ваше имя: <input type="text" name="name" id="name"/></p>
+        <p>Ваш возраст: <input type="text" name="age" /></p>
+        <input type="submit" id="button" />
+    </form>
+
+    <br>
+
+    <form>
+        <div class="form-group">
+            <label id="yourName">Your name:</label>
+            
+        </div>
+        <div class="form-group">
+            <label">Your age:</age>
+            
+        </div>
+        <div class="form-group form-check">
+            <label>Do you want check out:</label>
+            
+        </div>
+    </form>
+</body>
+
+<script defer>
+    let button = document.querySelector("#button");
+    let name = document.querySelector("#name");
+    let yourName = document.querySelector("#yourName");
+    
+    function onFormSubmit() {
+        yourName.innerText = `Your name: ${name.value}`;
+    }
+
+    button.addEventListener("click", onFormSubmit);
+
+</script>

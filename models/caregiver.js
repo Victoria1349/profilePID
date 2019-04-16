@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const caregiverSchema = mongoose.Schema({
-    email: {
+    login: {
         type: String,
         required: true
     },
@@ -13,7 +13,7 @@ const caregiverSchema = mongoose.Schema({
         type: Number,
         required: true,
         default: 2
-    },
+    }
 });
 
 caregiverSchema.virtual('caregiverId').get(function () {

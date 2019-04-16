@@ -6,11 +6,23 @@ var logger = require('morgan');
 const favicon = require('serve-favicon');
 const mongoose = require('mongoose');
 
+var bodyParser = require('body-parser')
 const app = express();
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+ 
 // connect to DB
 mongoose.connect('mongodb+srv://admin:123456v@profilepid-oznsg.mongodb.net/profile-pid?retryWrites=true', {useNewUrlParser: true});
- 
+mongoose.set('useFindAndModify', false);
+
+
+//post-requests
+app.post('/main', urlencodedParser, function(req, res) {
+  if (!req.body) return res.sendStatus(400);
+  console.log(req.body);
+
+  //res.render('main');
+});
 
 // view engine setup
 app.engine('ejs', require('ejs-locals'));
