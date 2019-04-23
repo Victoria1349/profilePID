@@ -1,6 +1,5 @@
 const Question = require('../models/question');
 
-
 exports.post = function (req, res) {
     let newQuestion = new Question();
     newQuestion.profile_id = req.body.profile_id;
