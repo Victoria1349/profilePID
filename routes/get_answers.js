@@ -1,25 +1,24 @@
 const Profile = require('../models/profile');
 const Question = require('../models/question');
 
-exports.post = async function (req, res) {
+exports.get = async function (req, res) {
     try {
-        let cnt = Profile.length;                            // size?
+        let profile = await Profile.findOne(
+            { "_id": req.params._id }
+        );
 
-        for (let i = 0; i < cnt; i++) {
-            // найти вопрос по id & вывести ответ
-            let newQuestion = await Question.findOne(
-                { "_id": i },
-                { text: 1 }
-            );
-            
-            let newAnswer = await Question.findOne(
-                { "_id": i },
-                { answer: 1 }
-            );
+        let questions = await Question.find(
+            { "profile_id": profile._id },
+            { text: 1, pict: 1, answer: 1 }         ///////
+        );
 
-            req.body.question = newQuestion;                // в разные формы?
-            req.body.answer = newAnswer;
-        }
+        console.log(profile)
+        console.log(questions)
+
+        res.render('get_answers', {
+            profile: profile,
+            questions: questions
+        });
      
     } catch (err) {
         console.log(err);

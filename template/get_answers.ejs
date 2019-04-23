@@ -1,0 +1,8 @@
+<h2><%=profile.name%></h2>
+
+<%for (var i=0; i<questions.length; i++) { %> <!-- Test -->
+    <p><%=questions[i]._id%></p>
+    <p><%=questions[i].text%></p>
+    <p><%=questions[i].pict%></p>
+    <p><%=questions[i].answer%></p>
+<% } %>
