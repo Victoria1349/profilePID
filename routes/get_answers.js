@@ -12,14 +12,11 @@ exports.get = async function (req, res) {
             { text: 1, pict: 1, answer: 1 }         ///////
         );
 
-        console.log(profile)
-        console.log(questions)
-
         res.render('get_answers', {
             profile: profile,
             questions: questions
         });
-     
+
     } catch (err) {
         console.log(err);
     }

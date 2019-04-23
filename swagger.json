@@ -1,0 +1,9 @@
+{
+    "info": {
+      "title": "API",
+      "version": "1.0.0",
+      "description": "A sample API"
+    },
+    "host": "localhost:3001",
+    "basePath": "/"
+  }
