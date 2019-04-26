@@ -1,0 +1,309 @@
+// login ->
+
+$green: #5ED3A2
+$lightgrey: #E2E1E1
+$greyerandlighter: #F7F7F7
+$grey: #CECECE
+$font-color: #484848
+$modal-color: rgba(0, 0, 0, .7);
+$inset: inset 0px 4px 4px rgba(0, 0, 0, 0.25)
+$outset: 0px 4px 4px rgba(0, 0, 0, 0.25)
+
+%transition-all 
+    transition: all
+    transition-duration: .5s
+
+*
+    font-family: roboto, sans-serif
+    font-size: 22px
+    color: $font-color
+    outline: none
+
+    button 
+        border: none
+        cursor: pointer
+
+.panel 
+    width: 400px
+    height: 420px
+    margin: 90px auto
+    background-color: $lightgrey
+    box-sizing: border-box
+    box-shadow: $outset
+    display: flex
+    flex-direction: column
+
+    .panel__button-block
+        width: 100%
+        display: flex
+        flex-direction: row
+
+        .panel__button
+            width: 50%
+            height: 80px
+            border: none
+            background-color: $green
+            color: white
+            @extend %transition-all
+            
+        .panel__button--active
+            background-color: $lightgrey
+            color: $font-color
+            @extend %transition-all
+
+    .panel__form
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        label
+            width: 320px
+            height: 35px
+            margin-top: 20px
+            text-align: left
+            vertical-align: middle
+
+        input
+            width: 320px
+            height: 40px
+            padding: 5px
+            box-sizing: border-box
+            border: none
+            box-shadow: $inset
+
+        button
+            width: 200px
+            height: 40px
+            margin-top: 50px
+            background-color: #5ED3A2
+            color: white
+            box-shadow: $outset
+            @extend %transition-all
+            &:active
+                box-shadow: none
+                background-color: $grey
+
+// login <-
+
+
+
+// profile ->
+
+header
+    width: 800px
+    height: 80px
+    margin: 0 auto 20px auto
+    background-color: $green
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    align-items: center
+    box-shadow: $outset
+
+    span 
+        color: white
+
+    img 
+        width: 50px
+        height: 50px
+        margin: 0 10px
+
+.list
+    position: relative
+    width: 800px
+    margin: 0 auto 20px auto
+    background-color: $lightgrey
+    box-shadow: $outset
+    display: flex
+    flex-direction: column
+    align-items: center
+    
+    h2
+        width: 100%
+        height: 50px
+        margin: 0
+        padding: 10px 0 0 10px
+        box-sizing: border-box
+        background-color: $grey
+        text-align: left
+        font-weight: 500
+
+    .item
+        width: 780px
+        height: 60px
+        margin-top: 10px
+        padding: 0 20px
+        box-sizing: border-box
+        background-color: $greyerandlighter
+        display: flex
+        flex-direction: row
+        align-items: center
+        position: relative
+        @extend %transition-all
+
+    .item:last-child
+        margin-bottom: 10px
+        
+        a, span
+            width: 25%
+
+.list--something
+    position: relative
+
+    h2
+        padding-left: 60px
+    
+    .show 
+        position: absolute
+        width: 30px
+        height: 30px
+        top: 10px
+        left: 10px
+        background-image: url('../images/openList.png')
+        background-color: $grey
+        background-size: 100% 100%
+        background-repeat: none
+        @extend %transition-all
+        
+    
+    .show--active
+        transform: rotate(90deg)
+        @extend %transition-all
+
+    .add
+        position: absolute
+        width: 120px
+        height: 30px
+        right: 10px
+        top: 10px
+        background-color: #5ED3A2
+        color: white
+        box-shadow: $outset
+        @extend %transition-all
+
+        &:active
+                box-shadow: none
+                background-color: $grey
+
+    .deleteItem
+        position: absolute;
+        width: 120px;
+        height: 30px;
+        background-color: $grey
+        color: white
+        right: 10px
+        display: none
+
+    .item:hover
+        box-shadow: $outset
+        @extend %transition-all
+
+        .deleteItem
+            display: block
+        
+#modal-form
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 100
+    background-color: $modal-color
+
+    form 
+        width: 560px
+        margin: 40px auto
+        box-sizing: border-box
+        background-color: $lightgrey
+        box-shadow: $outset
+        display: flex
+        align-items: center
+        flex-direction: column
+        position: relative
+        
+
+        h2 
+            width: 100%
+            height: 60px
+            margin: 0
+            padding: 15px 0 0 10px
+            box-sizing: border-box
+            background-color: $grey
+            text-align: center
+            font-weight: 400
+
+        label
+            width: 480px
+            height: 35px
+            margin-top: 20px
+            text-align: left
+            vertical-align: middle
+
+        input, select
+            width: 480px
+            height: 40px
+            padding: 5px
+            box-sizing: border-box
+            border: none
+            box-shadow: $inset
+
+        button
+            background-color: #5ED3A2
+            color: white
+            box-shadow: $outset
+            @extend %transition-all
+
+            &:active
+                box-shadow: none
+                background-color: $grey
+
+        button[type="submit"]
+            width: 200px
+            height: 40px
+            margin: 40px 0
+
+        #closeModal
+            width: 40px
+            height: 40px
+            position: absolute
+            top: 10px
+            right: 10px
+
+
+            
+            
+
+// profile <-
+
+// employee 
+
+.info
+    width: 100%
+    box-sizing: border-box
+    padding: 0 20px 10px 20px
+    display: flex
+
+    p 
+        margin: 10px 10px
+
+#getExcel
+    position: absolute
+    width: 180px
+    height: 30px
+    right: 10px
+    top: 10px
+    background-color: #5ED3A2
+    color: white
+    box-shadow: $outset
+
+.question p
+    width: 50%
+
+// programming styles ->
+
+.none 
+    display: none!important
+
+
+
+// programming styles <-
