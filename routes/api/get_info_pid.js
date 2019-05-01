@@ -18,12 +18,6 @@ exports.post = async function (req, res) {
             { login : 1 }
         );
 
-        res.render('get_info_pid', {
-            pid: pid,
-            caregivers: caregivers,
-            employers: employers
-        });
-
     } catch (err) {
         console.log(err);
     }

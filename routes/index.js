@@ -5,9 +5,11 @@ const swaggerJSDoc = require('swagger-jsdoc');
 router.get('/', require ('./main').get);
 router.post('/test', require ('./test').post);
 
+// API
 router.post('/get-info-pid/id:_id', require ('./api/get_info_pid').post);
 router.post('/get-profile/id:_id', require ('./api/get_profile').post);
 router.post('/pid-answers/id:_id', require ('./api/pid_answers').post);
+router.post('/get-answers', require ('./api/v1/get_answers').post);
 
 router.post('/create-profile', require ('./create_profile').post);
 router.post('/create-question', require ('./create_question').post);
@@ -17,10 +19,6 @@ router.get('/get-info-caregiver/id:_id', require ('./get_info_caregiver').get);
 router.get('/get-info-employer/id:_id', require ('./get_info_employer').get);
 router.get('/get-profile/id:_id', require ('./get_profile').get);
 
-
-
-
-// API
 
 // swagger definition 
 const swaggerDefinition = require('../swagger.json');
