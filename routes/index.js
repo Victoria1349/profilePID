@@ -1,20 +1,21 @@
 const express = require('express');
-const router = express.Router(); 
+const router = express.Router();
 const swaggerJSDoc = require('swagger-jsdoc');
 
 router.get('/', require ('./main').get);
 router.post('/test', require ('./test').post);
 router.post('/create-profile', require ('./create_profile').post);
 router.post('/create-question', require ('./create_question').post);
-router.post('/pid-answers', require ('./pid_answers').post);
+router.post('/pid-answers', require ('./api/pid_answers').post);
 router.get('/get-profile/id:_id', require ('./get_profile').get);
 router.get('/get-answers/id:_id', require ('./get_answers').get);
+router.post('/get-info-pid/id:_id', require ('./api/get_info_pid').post);
 
 
 // API
 
 // swagger definition 
-const swaggerDefinition = require('../swagger.json'); 
+const swaggerDefinition = require('../swagger.json');
 
 // options for the swagger docs 
 const options = { 

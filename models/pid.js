@@ -9,6 +9,10 @@ const pidSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    age: {
+        type: Number,
+        required: true
+    },
     id_caregiver: {
         type: String,
         required: true

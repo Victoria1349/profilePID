@@ -5,9 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const favicon = require('serve-favicon');
 const mongoose = require('mongoose');
-
-var bodyParser = require('body-parser')
+var session = require('express-session');
+var bodyParser = require('body-parser');
 const app = express();
+app.use(bodyParser.json());
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
  
@@ -54,8 +55,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
 
 
 module.exports = app;
