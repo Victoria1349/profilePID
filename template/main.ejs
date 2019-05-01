@@ -1,41 +1,44 @@
 <% layout ('layout/pattern') -%>
 
-
 <body>
-
-
-<%for (var i=0; i<fsfaf.length; i++) { %> <!-- Test -->
-        <p><%=fsfaf[i].text%></p>
-    <% } %>
-
-    <form method="POST" action="/main" > <!-- -->
-        
-        <p>Ваше имя: <input type="text" name="name" id="name"/></p>
-        <p>Ваш возраст: <input type="text" name="age" /></p>
-        <input type="submit" id="button" />
-    </form>
-
-    <br>
-
-    <form>
-        <div class="form-group">
-            <label id="yourName">Your name:</label>
+    <div class="panel">
+        <div class="panel__button-block">
+            <button id="signInBtn" class="panel__button panel__button--active">Sign in</button>
+            <button id="signUpBtn" class="panel__button">Sign up</button>
         </div>
-        <div class="form-group">
-            <label">Your age:</age>
-        </div>
-    </form>
+        <form action="" class="panel__form" id="loginForm">
+            <label for="e-mail">E-mail</label>
+            <input type="email" name="e-mail" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+            <button type="submit">Sign in</button>
+        </form>
+        <form action="" class="panel__form none" id="registerForm">
+            <label for="e-mail">E-mail</label>
+            <input type="email" name="e-mail" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
 </body>
 
 <script defer>
-    let button = document.querySelector("#button");
-    let name = document.querySelector("#name");
-    let yourName = document.querySelector("#yourName");
-    
-    function onFormSubmit() {
-        yourName.innerText = `Your name: ${name.value}`;
+    const signInBtn = document.querySelector("#signInBtn");
+    const signUpBtn = document.querySelector("#signUpBtn");
+    const loginForm = document.querySelector("#loginForm");
+    const registerForm = document.querySelector("#registerForm");
+
+    function onPaginationClick(evt) {
+        if (evt.target.classList.contains("panel__button--active")) return;
+
+        signInBtn.classList.toggle("panel__button--active");
+        signUpBtn.classList.toggle("panel__button--active");
+
+        loginForm.classList.toggle("none");
+        registerForm.classList.toggle("none");
     }
 
-    button.addEventListener("click", onFormSubmit);
-
+    signInBtn.addEventListener("click", onPaginationClick);
+    signUpBtn.addEventListener("click", onPaginationClick);
 </script>
