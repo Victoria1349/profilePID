@@ -14,11 +14,10 @@ router.post('/get-answers', require ('./api/v1/get_answers').post);
 router.post('/create-profile', require ('./create_profile').post);
 router.post('/create-question', require ('./create_question').post);
 router.get('/employers-answers/id:_id', require ('./employers_answers').get);
-router.get('/get-answers', require ('./get_answers').get);
+router.get('/get-answers/id:_id', require ('./get_answers').get);
 router.get('/get-info-caregiver/id:_id', require ('./get_info_caregiver').get);
 router.get('/get-info-employer/id:_id', require ('./get_info_employer').get);
 router.get('/get-profile/id:_id', require ('./get_profile').get);
-
 
 // swagger definition 
 const swaggerDefinition = require('../swagger.json');
