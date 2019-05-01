@@ -4,12 +4,20 @@ const swaggerJSDoc = require('swagger-jsdoc');
 
 router.get('/', require ('./main').get);
 router.post('/test', require ('./test').post);
+
+router.post('/get-info-pid/id:_id', require ('./api/get_info_pid').post);
+router.post('/get-profile/id:_id', require ('./api/get_profile').post);
+router.post('/pid-answers/id:_id', require ('./api/pid_answers').post);
+
 router.post('/create-profile', require ('./create_profile').post);
 router.post('/create-question', require ('./create_question').post);
-router.post('/pid-answers', require ('./api/pid_answers').post);
+router.get('/employers-answers/id:_id', require ('./employers_answers').get);
+router.get('/get-answers', require ('./get_answers').get);
+router.get('/get-info-caregiver/id:_id', require ('./get_info_caregiver').get);
+router.get('/get-info-employer/id:_id', require ('./get_info_employer').get);
 router.get('/get-profile/id:_id', require ('./get_profile').get);
-router.get('/get-answers/id:_id', require ('./get_answers').get);
-router.post('/get-info-pid/id:_id', require ('./api/get_info_pid').post);
+
+
 
 
 // API
