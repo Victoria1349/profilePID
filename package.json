@@ -15,7 +15,7 @@
     "express-session": "^1.16.1",
     "http-errors": "~1.6.2",
     "mongodb": "^3.2.3",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.7.5",
     "morgan": "~1.9.0",
     "path": "^0.12.7",
     "serve-favicon": "^2.5.0",
